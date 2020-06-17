@@ -4,7 +4,9 @@ const requireDir = require("require-dir");
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/moveis", {
+app.use(express.json());
+
+mongoose.connect("mongodb://localhost:27017/movies", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

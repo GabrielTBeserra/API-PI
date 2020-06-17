@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosepaginate = require("mongoose-paginate");
 
 const MovieSchema = new mongoose.Schema({
   name: {
@@ -14,7 +15,7 @@ const MovieSchema = new mongoose.Schema({
     required: true,
   },
   rating: {
-    type: Date,
+    type: String,
     required: true,
   },
   type: {
@@ -29,10 +30,16 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  bannerurl: {
+    type: String,
+    required: true,
+  },
   comentarys: {
     type: Array,
     required: true,
   },
 });
+
+MovieSchema.plugin(mongoosepaginate);
 
 mongoose.model("Movies", MovieSchema);
