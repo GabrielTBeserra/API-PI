@@ -11,13 +11,39 @@ module.exports = {
     return res.status(200).json(Movies);
   },
   async addCom(req, res) {
+    let obj = {
+      id: Math.random().toString(36),
+      userid: req.body.userid,
+      username: req.body.username,
+      rating: req.body.rating,
+      commentary: req.body.commentary,
+    };
+
     Movie.updateOne(
       { _id: req.params.id },
-      { $push: { comentarys: req.body } },
+      { $push: { comentarys: obj } },
       { safe: true, upsert: true },
-      function (err, model) {
-        console.log(err);
+      function (err, model) {}
+    );
+
+    return res.status(200).json({ Status: "Done" });
+  },
+  async remCom(req, res) {
+    let movieComs = [];
+
+    await Movie.findOne({ _id: req.params.movieid }, function (err, movie) {
+      movieComs = movie.comentarys;
+    });
+
+    movieComs.forEach((i, n) => {
+      if (i.id == req.params.comid) {
+        movieComs.splice(n, 1);
       }
+    });
+
+    const Moviee = await Movie.updateOne(
+      { _id: req.params.movieid },
+      { comentarys: movieComs }
     );
 
     return res.status(200).json({ Status: "Done" });
@@ -42,7 +68,6 @@ module.exports = {
             movieName: i.name,
           };
 
-          console.log(obj);
           moviesArray.push(obj);
         }
       });

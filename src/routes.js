@@ -27,4 +27,7 @@ routes.get("/getcoms/:userid", MovieController.getMoviesCom);
 // Rota para procurar um filme pelo nome
 routes.get("/search/:term", MovieController.search);
 
+// Rota para remover um comentario
+routes.get("/remcom/:movieid/:comid", MovieController.remCom);
+
 module.exports = routes;

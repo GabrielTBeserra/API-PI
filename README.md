@@ -54,12 +54,14 @@ Retorno
     {
       "userid": 51651,
       "username": "teles",
+      "id": "1asd51aaasdd",
       "rating": 4,
       "commentary": "Muito bom!"
     },
     {
       "userid": 512651,
       "username": "fernando",
+      "id": "41651ujasbduiaiusd",
       "rating": 4,
       "commentary": "Muito bom 2!"
     }
@@ -93,6 +95,7 @@ Retorno
   {
     "userid": 51651,
     "username": "teles",
+    "id": "1asd51aad",
     "rating": 4,
     "commentary": "Muito bom!",
     "movieId": "5ef36281f7002d1910aafbb5",
@@ -102,6 +105,7 @@ Retorno
     "userid": 51651,
     "username": "telesasdasdas",
     "rating": 4,
+    "id": "24fasuj5",
     "commentary": "Muito bom!asdasdasdasd",
     "movieId": "5ef36ae564653c2ef0d77327",
     "movieName": "Coringa teste"
@@ -147,3 +151,9 @@ Retorno de exemplo com a url `http://localhost:3001/api/search/teste`
   ]
 }
 ```
+
+### Removendo comentarios
+
+`http://localhost:3001/api/remcom/<MOVIE_ID>/<COMMENTARY_ID>`
+
+Exemplo `http://localhost:3001/api/remcom/5ef36281f7002d1910aafbb5/0.fxci3xb6awk`
