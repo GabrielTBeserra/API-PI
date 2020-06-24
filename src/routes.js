@@ -21,4 +21,7 @@ routes.put("/update/:id", MovieController.update);
 // Rota para apagar um registro
 routes.delete("/delete/:id", MovieController.delete);
 
+// Rota para recuperar quais filmes o usuario comentou
+routes.get("/getcoms/:userid", MovieController.getMoviesCom);
+
 module.exports = routes;

@@ -21,6 +21,37 @@ module.exports = {
 
     return res.status(200).json({ Status: "Done" });
   },
+
+  async getMoviesCom(req, res) {
+    let moviesArray = [];
+    const { page = 1 } = req.query;
+    const Movies = await Movie.paginate({}, { page, limit: 20 });
+
+    let fromDBArray = Movies.docs;
+
+    console.log(req.params.userid);
+
+    fromDBArray.forEach((i, n) => {
+      i.comentarys.forEach((index, num) => {
+        if (index.userid == req.params.userid) {
+          let obj = {
+            userid: index.userid,
+            username: index.username,
+            rating: index.rating,
+            commentary: index.commentary,
+            movieId: i._id,
+            movieName: i.name,
+          };
+
+          console.log(obj);
+          moviesArray.push(obj);
+        }
+      });
+    });
+
+    return res.status(200).json(moviesArray);
+  },
+
   async getInfo(req, res) {
     const backMovie = Movie.findOne({ _id: req.params.id }, function (
       err,
