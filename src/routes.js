@@ -24,4 +24,7 @@ routes.delete("/delete/:id", MovieController.delete);
 // Rota para recuperar quais filmes o usuario comentou
 routes.get("/getcoms/:userid", MovieController.getMoviesCom);
 
+// Rota para procurar um filme pelo nome
+routes.get("/search/:term", MovieController.search);
+
 module.exports = routes;

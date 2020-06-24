@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { search } = require("../routes");
 
 const Movie = mongoose.model("Movies");
 
@@ -28,8 +29,6 @@ module.exports = {
     const Movies = await Movie.paginate({}, { page, limit: 20 });
 
     let fromDBArray = Movies.docs;
-
-    console.log(req.params.userid);
 
     fromDBArray.forEach((i, n) => {
       i.comentarys.forEach((index, num) => {
@@ -72,5 +71,20 @@ module.exports = {
     await Movie.create(req.body);
 
     return res.status(200).json({ Status: "Done" });
+  },
+  async search(req, res) {
+    let moviesArray = [];
+    const { page = 1 } = req.query;
+    const Movies = await Movie.paginate({}, { page, limit: 20 });
+
+    let fromDBArray = Movies.docs;
+
+    fromDBArray.forEach((i, n) => {
+      if (i.name.toLowerCase().includes(req.params.term.toLowerCase())) {
+        moviesArray.push(i);
+      }
+    });
+
+    return res.status(200).json({ docs: moviesArray });
   },
 };
