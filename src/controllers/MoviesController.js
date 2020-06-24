@@ -26,7 +26,8 @@ module.exports = {
       err,
       adventure
     ) {
-      return res.status(200).json(backMovie);
+      console.log(adventure);
+      return res.status(200).json(adventure);
     });
   },
   async delete(req, res) {
