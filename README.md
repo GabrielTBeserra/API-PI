@@ -81,3 +81,30 @@ Retorno
 `http://localhost:3001/api/movies`
 
 Sera retornado um array de objetos
+
+### Obter todos comentarios que um usuario fez
+
+`http://localhost:3001/api/getcoms/<ID>`
+
+Retorno
+
+```json
+[
+  {
+    "userid": 51651,
+    "username": "teles",
+    "rating": 4,
+    "commentary": "Muito bom!",
+    "movieId": "5ef36281f7002d1910aafbb5",
+    "movieName": "Coringa"
+  },
+  {
+    "userid": 51651,
+    "username": "telesasdasdas",
+    "rating": 4,
+    "commentary": "Muito bom!asdasdasdasd",
+    "movieId": "5ef36ae564653c2ef0d77327",
+    "movieName": "Coringa teste"
+  }
+]
+```
