@@ -24,10 +24,9 @@ module.exports = {
   async getInfo(req, res) {
     const backMovie = Movie.findOne({ _id: req.params.id }, function (
       err,
-      adventure
+      movie
     ) {
-      console.log(adventure);
-      return res.status(200).json(adventure);
+      return res.status(200).json(movie);
     });
   },
   async delete(req, res) {
