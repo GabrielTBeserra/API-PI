@@ -1,0 +1,19 @@
+version: '3.4'
+
+volumes:
+  movies-mongodb:
+
+services:
+  api:
+    image: movies-api
+    build:
+      context: .
+    ports:
+      - "3001:3001"
+
+  dbserver:
+    image: mongo
+    volumes:
+      - type: volume
+        source: movies-mongodb
+        target: /data/db

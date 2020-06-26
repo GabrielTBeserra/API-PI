@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/movies", {
+mongoose.connect("mongodb://dbserver:27017/movies", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
