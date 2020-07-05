@@ -97,6 +97,15 @@ module.exports = {
 
     return res.status(200).json({ Status: "Done" });
   },
+  async insertall(req, res) {
+    let moviesArrayRequesta = req.body;
+
+    moviesArrayRequesta.forEach(async (element) => {
+      await Movie.create(element);
+    });
+
+    return res.status(200).json({ Status: "Done" });
+  },
   async search(req, res) {
     let moviesArray = [];
     const { page = 1 } = req.query;

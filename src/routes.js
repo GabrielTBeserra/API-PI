@@ -15,6 +15,9 @@ routes.post("/addcom/:id", MovieController.addCom);
 // Rota para inserir novos objetos no banco
 routes.post("/insert", MovieController.insert);
 
+// Rota para inserir novos objetos no banco varios ao mesmo tempo
+routes.post("/insertall", MovieController.insertall);
+
 // Rota para atualizar um registro
 routes.put("/update/:id", MovieController.update);
 

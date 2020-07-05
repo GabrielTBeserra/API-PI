@@ -1,5 +1,13 @@
 # API-PI
 
+# Dependencias
+
+express <br/>
+mongoose<br/>
+mongoose-paginate<br/>
+require-dir<br/>
+nodemon<br/>
+
 ## ENDPOINTS
 
 ### INSERT
